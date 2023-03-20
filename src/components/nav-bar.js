@@ -29,7 +29,7 @@ const MainNav = () => (
       exact
       activeClassName="router-link-exact-active"
     >
-      Multi factor Authentication
+      Settings
     </Nav.Link>
   </Nav>
 );
@@ -45,11 +45,12 @@ const AuthNav = () => {
 };
 
 const NavBar = () => {
+  const {isAuthenticated} = useAuth0();
   return (
     <Navbar bg="light" expand="md">
       <Container>
         <Navbar.Brand as={RouterNavLink} className="logo" to="/" />
-        <MainNav />
+        {isAuthenticated ? <MainNav /> : " "}
         { <AuthNav /> }
       </Container>
     </Navbar>

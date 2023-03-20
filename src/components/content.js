@@ -6,11 +6,17 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import contentData from "../utils/content-data";
 import { Col, Row } from "react-bootstrap";
 
-const Content = () => (
-  <div className="next-steps my-5">
-    <h2 className="my-5 text-center">WELCOMEEEE!!!</h2>
+
+const Content = () => {
+  const {isAuthenticated} = useAuth0();
+  return (
+  <div className="next-steps my-5" >
+    <h2 className="my-5 text-center">
+      {isAuthenticated ? "WELCOME" : "MULTI FACTOR AUTHENTICATION"}
+      </h2>
     
   </div>
+  );
   
-);
+  };
 export default Content;
